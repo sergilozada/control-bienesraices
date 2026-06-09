@@ -35,9 +35,18 @@ export default function FirebaseLogin() {
 
   const fillCredentials = (userType: 'admin' | 'usuario' | 'readonly') => {
     const credentials = {
-      admin: { email: 'admin@bienesraices.com', password: 'password123' },
-      usuario: { email: 'usuario@bienesraices.com', password: 'password123' },
-      readonly: { email: 'readonly@bienesraices.com', password: 'password123' }
+      admin: {
+        email: import.meta.env.VITE_ADMIN_EMAIL || '',
+        password: import.meta.env.VITE_ADMIN_PASSWORD || '',
+      },
+      usuario: {
+        email: import.meta.env.VITE_USUARIO_EMAIL || '',
+        password: import.meta.env.VITE_USUARIO_PASSWORD || '',
+      },
+      readonly: {
+        email: import.meta.env.VITE_READONLY_EMAIL || '',
+        password: import.meta.env.VITE_READONLY_PASSWORD || '',
+      },
     };
     
     setEmail(credentials[userType].email);
